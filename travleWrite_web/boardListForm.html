@@ -4,8 +4,15 @@
   <title>여행기록사이트</title>
   <meta charset="UTF-8">
   <link rel="stylesheet" href="style.css">
+  <!--JQuery-->
   <script src="http://code.jquery.com/jquery-latest.js"></script>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!--Font Awesome-->
+  <script src="https://kit.fontawesome.com/6c7d966087.js" crossorigin="anonymous"></script>
+  <!--Slick Slide-->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+  <!--GoogleFont-->
+<link href="https://fonts.googleapis.com/css2?family=Sriracha&display=swap" rel="stylesheet">
 
 </head>
 <body>
@@ -28,7 +35,7 @@
           </ul>
         </div>
         <div class="user">
-          <img src="img/user.png" style="width30px; height:30px; ">
+          <img src="img/user.png" class="userImg" style="width:30px; ">
         </div>
       </nav>
     </header>
@@ -36,23 +43,45 @@
 
 
 <!--Page Wrapper -->
-    <div class="page-wrapper">
+    <div class="page-wrapper" style="position:relative;">
       <!--page slider -->
       <div class="post-slider">
-        <h1 class="sider-title">Treding Posts</h1>
+        <h1 class="silder-title">Trending Posts</h1>
+        <i class="fas fa-chevron-left prev"></i>
+        <i class="fas fa-chevron-right next"></i>
         <div class="post-wrapper">
-          <div class="post">1</div>
-          <div class="post">2</div>
-          <div class="post">3</div>
-          <div class="post">4</div>
-          <div class="post">5</div>
+          <div class="post">
+            <img src="img/paris.jpg" class="slider-image">
+            <div class="post-info">
+              <h4><a href="#" class="post-subject">Lorem ipsu eiusmod tempor incididunt ut </a></h4>
+              <i class="far fa-user" style="height:10%;">Awa Melvine</i>
+            </div>
+          </div>
+          <div class="post">
+            <img src="img/architecture.jpg" class="slider-image">
+            <div class="post-info">
+              <h4><a href="#"> Commodo odio aenean sed  </a></h4>
+              <i class="far fa-user" style="height:10%;">Awa Melvine</i>
+            </div>
+          </div>
+          <div class="post">
+            <img src="img/paris.jpg" class="slider-image">
+            <div class="post-info">
+              <h4><a href="#">Quis hendrerit dolor magna eget est lorem ipsum dolor sit. </a></h4>
+              <i class="far fa-user" style="height:10%;">Awa Melvine</i>
+            </div>
+          </div>
+          <div class="post">
+            <img src="img/gyungju.jpg" class="slider-image">
+            <div class="post-info">
+              <h4><a href="#">Elit at imperdiet dui accumsan sit.</a></h4>
+              <i class="far fa-user" style="height:10%;">Awa Melvine</i>
+            </div>
+          </div>
         </div>
       </div>
       <!--post slider-->
     </div>
-
-
-
 
 
     <!--content -->
@@ -93,7 +122,7 @@
 $(document).ready(function(){
 $(".menu-icon").on("click",function(){
   $("nav ul").toggleClass("showing");
-  $("img").toggleClass("showing");
+  $(".userImg").toggleClass("showing");
   $(".user").addClass(function(){
     return userShow;
   });
@@ -106,7 +135,16 @@ $(window).on("scroll",function(){
   } else {
     $('nav').removeClass('black');
   }
-})
+});
+
+$('.post-wrapper').slick({
+  slidesToShow: 3,
+  slidesToScroll: 1,
+  autoplay: true,
+  autoplaySpeed: 2000,
+  nextArrow:$('.next'),
+  prevArrow:$('.prev'),
+});
 </script>
 
 
